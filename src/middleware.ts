@@ -1,18 +1,15 @@
 import { NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 
-export function middleware(request) {
+export function middleware(request: NextRequest) {
+  const refreshToken = request.cookies.get('refresh_token')?.value
 
-  const user = ""
-
-  
-  if (!user){
-    return NextResponse.redirect(
-      new URL('/login', request.url));
+  if (!refreshToken) {
+    return NextResponse.redirect(new URL('/login', request.url))
   }
 
-  return NextResponse.next();
+  return NextResponse.next()
 }
-
 export const config = {
   matcher: [
     '/signup/:path*',
