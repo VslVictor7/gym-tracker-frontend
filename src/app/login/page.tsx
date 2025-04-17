@@ -21,12 +21,10 @@ export default function Login() {
     e.preventDefault();
   
     try {
-      const data = await loginUser(username, password);
-  
-      localStorage.setItem('access_token', data.access);
-      localStorage.setItem('refresh_token', data.refresh);
-  
-      router.push('/signup');
+
+      await loginUser(username, password);
+      router.push('/');
+      
     } catch (error) {
       console.error('Erro no login:', error);
       alert('Usuário ou senha incorretos.');
