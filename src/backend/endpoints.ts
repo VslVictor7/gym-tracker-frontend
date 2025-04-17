@@ -6,6 +6,7 @@ export const endpoints = {
   users: `${API_BASE}/api/users/`,
 
   login: `${API_BASE}/accounts/token/`,
+  logout: `${API_BASE}/accounts/logout/`,
   signup: `${API_BASE}/accounts/signup/`,
   token_refresh: `${API_BASE}/accounts/token/refresh/`,
 
